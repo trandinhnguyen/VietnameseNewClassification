@@ -3,7 +3,6 @@ import numpy as np
 import pickle
 import import_ipynb
 import preprocess
-
 import time
 import os
 import io
@@ -39,7 +38,7 @@ name_result = {
     'Thoi trang': 'Thời trang'
 }
 
-st.title('Vietnamese Text Classification')
+st.title('Vietnamese News Classification')
 
 # load model
 model = pickle.load(open('Data/saved/best_model.sav', 'rb'))
@@ -50,23 +49,23 @@ feature_extractor = pickle.load(open('Data/saved/feature_extractor.sav', 'rb'))
 news = st.text_area('News input')
 if news:
 
+    # Tiền xử lý và loại bỏ stopwords
     start = time.time()
-    # Tiền xử lý
     data = preprocess.text_preprocessing(news)
-    # Loại bỏ stopwords
     data = preprocess.remove_stopwords(data)
     preprocess_time = time.time() - start
 
     # Dự đoán
     start = time.time()
-    data = np.array([data])
-    feature = feature_extractor.transform(data)
+    np_data = np.array([data])
+    feature = feature_extractor.transform(np_data)
     pred = model.predict(feature)
     result = name_result[pred[0]]
     predict_time = time.time() - start
 
     total = round(predict_time + preprocess_time, 2)
-    
+
     # Hiện kết quả
     st.text('Kết quả: ' + result)
     st.text('Time: ' + str(total) + 's')
+    st.text('Data preprocessed: ' + data)
