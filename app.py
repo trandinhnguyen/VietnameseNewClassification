@@ -68,4 +68,4 @@ if news:
     # Hiện kết quả
     st.text('Kết quả: ' + result)
     st.text('Time: ' + str(total) + 's')
-    st.text('Data preprocessed: ' + data)
+    #st.text('Data preprocessed: ' + data)
