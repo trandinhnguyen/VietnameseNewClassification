@@ -7,6 +7,13 @@ Nguồn dữ liệu: https://github.com/duyvuleo/VNTC
 
 Giáo viên hướng dẫn: ThS. Ngô Văn Linh
 
+### Các model được sử dụng
+- K Nearest Neighbors
+- Multinomial Naive Bayes
+- Logistic Regression
+- Random Forest
+- Support Vector Machine
+
 ### Cài đặt
 Sử dụng một IDE bất kỳ để thực thi chương trình (ví dụ VS Code)
 - Bước 1: Cài đặt các thư viện Python: 
